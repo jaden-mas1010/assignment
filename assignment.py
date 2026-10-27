@@ -105,7 +105,7 @@ def run_examples():
     cache.put(2, "Banana")
     assert cache.get(1) == "Apple"
     cache.put(3, "Cherry")
-    assert cache.get(2) == -1  # Evicted: least recent
+    assert cache.get(2) == -1
     cache.put(1, "Updated")
     assert cache.get(1) == "Updated"
 
