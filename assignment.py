@@ -14,7 +14,7 @@ class LRUCache:
         self.capacity = capacity
         self.cache = {}
 
-        # Dummy nodes make insertion and removal easier.
+ 
         self.head = Node(None, None)
         self.tail = Node(None, None)
         self.head.next = self.tail
@@ -27,7 +27,7 @@ class LRUCache:
         following.prev = previous
 
     def _add_recent(self, node):
-        # Insert the node just before the tail.
+        
         last = self.tail.prev
         last.next = node
         node.prev = last
@@ -88,11 +88,10 @@ def min_rooms_required(events):
     max_rooms = 0
 
     for start, end in sorted_events:
-        # Remove meetings that finished before this one starts.
+        
         while rooms and rooms[0] <= start:
             heapq.heappop(rooms)
 
-        # Reserve a room until this meeting's end time.
         heapq.heappush(rooms, end)
         max_rooms = max(max_rooms, len(rooms))
 
@@ -112,8 +111,7 @@ def run_examples():
     assert can_attend_all([(9, 10), (10, 11), (11, 12)])
     assert not can_attend_all([(9, 12), (10, 11)])
     assert min_rooms_required([(9, 11), (10, 12), (11, 13)]) == 2
-    assert min_rooms_required([(9, 11), (10, 12),
-                               (11, 13), (10, 11)]) == 3
+    assert min_rooms_required([(9, 11), (10, 12),(11, 13), (10, 11)]) == 3
     assert can_attend_all([])
     assert min_rooms_required([]) == 0
 
